@@ -1,24 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { FacebookProvider, LoginButton } from "react-facebook";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import { getFacebook } from "../../redux/actions";
 
 function SignInFacebook() {
+  const dispatch = useDispatch();
   const history = useHistory();
-  const [facebook, setfacebook] = useState({});
+  const [error, seterror] = useState({});
 
   const handleResponse = (data) => {
-    setfacebook(data);
+    dispatch(getFacebook(data, history));
   };
 
-  const handleError = (error) => {
-    setfacebook({ error });
+  const handleError = (errors) => {
+    seterror({ errors });
+    console.log(error);
   };
 
-  useEffect(() => {
-    if (facebook.profile !== undefined) {
-      history.push("/profile");
-    }
-  }, [facebook, history]);
   return (
     <div>
       <FacebookProvider appId="1445397718996547">

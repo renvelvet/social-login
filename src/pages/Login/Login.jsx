@@ -1,12 +1,15 @@
 import React from "react";
-import { SignInFacebook } from "../../components";
+import { Container } from "reactstrap";
+
+import { SignInFacebook, SignInGoogle } from "../../components";
 
 function Login() {
   return (
-    <div>
+    <Container className="themed-container" fluid="sm">
       <h1>Social Login</h1>
       <SignInFacebook />
-    </div>
+      <SignInGoogle />
+    </Container>
   );
 }
 

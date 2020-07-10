@@ -1,0 +1,22 @@
+import { GET_GOOGLE, GET_FACEBOOK } from "../actions";
+
+const initialState = {
+  google: {},
+  facebook: {},
+};
+
+export default (state = initialState, { type, payload }) => {
+  switch (type) {
+    case GET_GOOGLE:
+      return {
+        ...state,
+        google: payload,
+      };
+
+    case GET_FACEBOOK:
+      return { ...state, facebook: payload };
+
+    default:
+      return state;
+  }
+};

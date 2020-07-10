@@ -1,10 +1,10 @@
 import React from "react";
-import { SignInFacebook } from "../../components";
+import { Profile } from "../../components";
 
 function Home() {
   return (
     <div>
-      <SignInFacebook />
+      <Profile />
     </div>
   );
 }
