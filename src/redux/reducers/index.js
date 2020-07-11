@@ -1,4 +1,3 @@
-import login from "./login";
-// import logout from "./logout";
+import users from "./users";
 
-export default login;
+export default users;

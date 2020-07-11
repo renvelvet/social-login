@@ -4,8 +4,7 @@ import { createStore } from "redux";
 import { Provider } from "react-redux";
 
 import reducers from "./redux/reducers";
-import { Login } from "./pages";
-import Profile from "./components/Profile/Profile";
+import { Login, Home } from "./pages";
 import PrivateRoute from "./helpers/PrivateRoute/PrivateRoute";
 
 function App() {
@@ -18,7 +17,7 @@ function App() {
           </Route>
 
           <PrivateRoute exact path="/profile">
-            <Profile />
+            <Home />
           </PrivateRoute>
         </Switch>
       </Router>

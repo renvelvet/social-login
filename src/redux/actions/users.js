@@ -26,7 +26,7 @@ const getGoogle = (data, history) => {
 const getFacebook = (data, history) => {
   const { profile } = data;
 
-  if (profile.profileObj !== undefined) {
+  if (profile.name !== undefined) {
     localStorage.setItem("isLoggedIn", true);
     history.push("/profile");
   }
@@ -36,11 +36,20 @@ const getFacebook = (data, history) => {
     payload: {
       profile: {
         name: profile.name,
-        imgUrl: profile.picture.data.url,
+        imageUrl: profile.picture.data.url,
         email: profile.email,
       },
     },
   };
 };
+const LOGOUT = "LOGOUT";
 
-export { GET_GOOGLE, GET_FACEBOOK, getGoogle, getFacebook };
+const logout = (history) => {
+  history.push("/");
+  localStorage.clear();
+  return {
+    type: LOGOUT,
+  };
+};
+
+export { GET_GOOGLE, GET_FACEBOOK, getGoogle, getFacebook, logout, LOGOUT };

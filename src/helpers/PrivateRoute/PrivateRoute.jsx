@@ -2,16 +2,13 @@ import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
 function PrivateRoute({ children, ...rest }) {
-  let user = localStorage.getItem("user");
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        // kalau true, maka redirect ke children
-        user !== null ? (
+        localStorage.getItem("isLoggedIn") !== null ? (
           children
         ) : (
-          // Kalau false, redirect ke home ('/')
           <Redirect
             to={{
               pathname: "/",
