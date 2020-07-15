@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 
 import reducers from "./redux/reducers";
 import { Login, Home } from "./pages";
-import PrivateRoute from "./helpers/PrivateRoute/PrivateRoute";
+import PrivateRoute from "./helpers/PrivateRoute";
 
 function App() {
   return (
