@@ -6,7 +6,7 @@ function PrivateRoute({ children, ...rest }) {
     <Route
       {...rest}
       render={({ location }) =>
-        localStorage.getItem("isLoggedIn") ? (
+        localStorage.getItem("isLoggedIn") === "true" ? (
           children
         ) : (
           <Redirect
